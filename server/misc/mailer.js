@@ -1,24 +1,24 @@
 const nodemailer = require('nodemailer');
 const config = require('../config.js');
 
-const transport = nodemailer.createTransport({
-  service: 'Mailgun',
-  auth: {
-    user: config.mailConfig.user,
-    pass: config.mailConfig.pass
-  },
-  tls: {
-    rejecttUnauthorized: false
-  }
+var transporter = nodemailer.createTransport({
+ service: 'gmail',
+ auth: {
+   user: config.mailConfig.user,
+   pass: config.mailConfig.pass
+    }
 });
 
-module.exports = {
-  sendEmail(from, to, subject, html) {
-    return new Promise((resolve, reject) => {
-      transport.sendMail({ from, subject, to, html }, (err, info) => {
-        if (err) reject(err);
-        resolve(info);
-      });
-    });
-  }
-}
+const mailOptions = {
+  from: config.mailconfig.user, // sender address
+  to: 'to@email.com', // list of receivers
+  subject: 'Subject of your email', // Subject line
+  html: '<p>Your html here</p>'// plain text body
+};
+
+transporter.sendMail(mailOptions, function (err, info) {
+   if(err)
+     console.log(err)
+   else
+     console.log(info);
+});
