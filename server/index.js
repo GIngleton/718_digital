@@ -9,7 +9,16 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 // DB Setup
-mongoose.connect('mongodb://localhost:27017/kyer-v1');
+var mongoDB = 'mongodb://localhost:27017/kyer-v1';
+mongoose.connect(mongoDB);
+
+// Get mongoose to use the global promise library
+mongoose.Promise = global.Promise;
+// Get the default connection
+var db = mongoose.connection;
+
+// Bind connection to error event
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // App Setup
 app.use(morgan('combined'));

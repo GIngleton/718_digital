@@ -7,7 +7,7 @@ import {
   FETCH_MESSAGE
   } from './types';
 
-const ROOT_URL = 'http://localhost:3090'
+const ROOT_URL = 'http://localhost:3090';
 
 export function signinUser({ email, password }) {
   return function(dispatch) {
@@ -32,23 +32,34 @@ export function signinUser({ email, password }) {
 
 export function signupUser({ email, password }) {
   return function(dispatch) {
+    // Submit email/password to the server
     axios.post(`${ROOT_URL}/signup`, { email, password })
+      // If request is good...
       .then(response => {
+        // - Update state to indicate user is authenticated
         dispatch({ type: AUTH_USER });
+        // - Save the JWT token
         localStorage.setItem('token', response.data.token);
+        // - Redirect to the route '/feature'
         browserHistory.push('/feature');
       })
+        // If request is bad, show an error to user
       .catch ( error => dispatch(authError(error.response.data.error)));
-      //.catch(response => dispatch(authError(response.response.data.error)));
+
   }
 }
 
-// export function signupDetails({ name, is_Student, verification, school_id }) {
-//   return function(dispatch) {
-//     axios.post(`{ROOT_URL}/signupDetails`, { name, is_Student, verification, school_id })
-//
-//   }
-// }
+export function signupDetails({ email, password, firstName, lastName, is_Student, verification, school_id }) {
+  return function(dispatch) {
+    // Submit firstName/lastName/is_Student/verification/school_id to the server
+    axios.post(`${ROOT_URL}/signupDetails?id=${user.id}`, { firstName, lastName, is_Student, verification, school_id })
+      // If request is good...
+      .then(response => {
+
+        dispatch
+      })
+  }
+}
 
 export function authError(error){
   return {
