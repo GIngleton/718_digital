@@ -253,3 +253,17 @@ exports.addFlag = function(req, res, next) {
   });
   return res.redirect('/');
 };
+
+// exports.greeting = function(req, res, next) {
+//   // var ObjectId = Schema.ObjectId;
+//   console.log(req.query);
+//   var userEmail = req.query.email;
+//   console.log(userEmail);
+//   // const userProps = req.body;
+//   User.findOne({ email: userEmail }, function(err, user) {
+//     if (err) {
+//       return next(err);
+//     }
+//     res.send(user._id);
+//   });
+// };

@@ -1,4 +1,5 @@
 const Authentication = require('./controllers/authentication');
+const UserController = require('./controllers/users_controller');
 const passportService = require('./services/passport');
 const passport = require('passport');
 
@@ -14,9 +15,12 @@ module.exports = function(app) {
   });
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
-  app.post('/signupdetails', requireSignin, Authentication.signupDetails);
+  app.post('/signupdetails:id', requireSignin, Authentication.signupDetails);
   app.post('/addright', Authentication.addRight);
   app.post('/addSchool', Authentication.addSchool);
   app.post('/addViolation', Authentication.addViolation);
   app.post('/addFlag', Authentication.addFlag);
+  app.get('/user', UserController.greeting); // user profile page
+  app.get('/school:id');
+  app.get('rights:id');
 };
