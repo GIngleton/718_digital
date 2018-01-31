@@ -41,11 +41,34 @@ class SignupDetails extends Component {
         </fieldset>
 
         <fieldset className="form-group">
-          <label>Are you a student or parent:</label>
-          <input className="form-control" {...is_Student} />
+          {/* <input className="form-control" {...is_Student} />
           {is_Student.touched &&
-            is_Student.error && <div className="error">{is_Student.error}</div>}
+            is_Student.error && <div className="error">{is_Student.error}</div>} */}
+          <div>
+            <label>Are you a student or parent: </label>
+            <div>
+              <label>
+                <input
+                  name="is_Student"
+                  component="input"
+                  type="radio"
+                  value="Student"
+                />{' '}
+                Student
+              </label>
+              <label>
+                <input
+                  name="is_Student"
+                  component="input"
+                  type="radio"
+                  value="parent"
+                />{' '}
+                Parent
+              </label>
+            </div>
+          </div>
         </fieldset>
+
         <fieldset className="form-group">
           <label>Verification Code:</label>
           <input className="form-control" {...verification} />

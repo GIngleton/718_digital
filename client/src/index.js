@@ -20,6 +20,11 @@ import Signup from './components/auth/signup';
 import SignupDetails from './components/auth/signupDetails';
 import Feature from './components/feature';
 import AdminPanel from './components/admin/adminPanel';
+import AdminRights from './components/admin/adminRights';
+import AdminSchools from './components/admin/adminSchools';
+import MajorViolations from './components/admin/majorViolations';
+import PendingViolations from './components/admin/pendingViolations';
+import PendingUsers from './components/admin/pendingUsers';
 import RequireAuth from './components/auth/require_auth';
 import Welcome from './components/welcome';
 import reducers from './reducers';
@@ -45,6 +50,14 @@ ReactDOM.render(
         <Route path="signup" component={Signup} />
         <Route path="signupdetails" component={SignupDetails} />
         <Route path="adminpanel" component={AdminPanel} />
+        <Route path="adminpanel/adminrights" component={AdminRights} />
+        <Route path="adminpanel/adminschools" component={AdminSchools} />
+        <Route path="adminpanel/majorviolations" component={MajorViolations} />
+        <Route
+          path="adminpanel/pendingviolations"
+          component={PendingViolations}
+        />
+        <Route path="adminPanel/pendingusers" component={PendingUsers} />
         <Route path="feature" component={RequireAuth(Feature)} />
       </Route>
     </Router>

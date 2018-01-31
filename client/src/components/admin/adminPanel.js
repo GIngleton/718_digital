@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import * as actions from '../../actions';
 
 class AdminPanel extends Component {
@@ -12,7 +14,11 @@ class AdminPanel extends Component {
           <hr className="my-4" />
           <p>Take action and Approve or Deny new violations</p>
           <p className="lead">
-            <a className="btn btn-primary btn-lg" href="#" role="button">
+            <a
+              className="btn btn-primary btn-lg"
+              href="/adminpanel/pendingviolations"
+              role="button"
+            >
               Pending Violations
             </a>
           </p>
@@ -24,7 +30,11 @@ class AdminPanel extends Component {
           <hr className="my-4" />
           <p>Take action for Major Violations</p>
           <p className="lead">
-            <a className="btn btn-danger btn-lg" href="#" role="button">
+            <a
+              className="btn btn-danger btn-lg"
+              href="/adminpanel/majorviolations"
+              role="button"
+            >
               Major Violations
             </a>
           </p>
@@ -36,7 +46,11 @@ class AdminPanel extends Component {
           <hr className="my-4" />
           <p>Take action and Approve or Deny new users</p>
           <p className="lead">
-            <a className="btn btn-success btn-lg" href="#" role="button">
+            <a
+              className="btn btn-success btn-lg"
+              href="/adminpanel/pendingusers"
+              role="button"
+            >
               Pending Users
             </a>
           </p>
@@ -48,7 +62,11 @@ class AdminPanel extends Component {
           <hr className="my-4" />
           <p>Add new rights and update or delete existing rights</p>
           <p className="lead">
-            <a className="btn btn-warning btn-lg" href="#" role="button">
+            <a
+              className="btn btn-warning btn-lg"
+              href="/adminpanel/adminrights"
+              role="button"
+            >
               Bill of Rights
             </a>
           </p>
@@ -60,7 +78,11 @@ class AdminPanel extends Component {
           <hr className="my-4" />
           <p>Add new schools and update or delete existing schools</p>
           <p className="lead">
-            <a className="btn btn-info btn-lg" href="#" role="button">
+            <a
+              className="btn btn-info btn-lg"
+              href="/adminpanel/adminschools"
+              role="button"
+            >
               Schools
             </a>
           </p>

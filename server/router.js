@@ -22,5 +22,5 @@ module.exports = function(app) {
   app.post('/addFlag', Authentication.addFlag);
   app.get('/user', UserController.greeting); // user profile page
   app.get('/school:id');
-  app.get('rights:id');
+  app.get('/rights:id');
 };

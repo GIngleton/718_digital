@@ -5,7 +5,7 @@ class Violation extends Component {
     return (
       <div className="card">
         <div className="card-header">School Name</div>
-        <div class="card-body">
+        <div className="card-body">
           <h5 className="card-title">Associated Right</h5>
           <p className="card-text">Violation Details</p>
           <div className="btn-group" role="group" aria-label="button group">

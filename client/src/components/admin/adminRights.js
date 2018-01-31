@@ -6,8 +6,8 @@ class AdminRights extends Component {
     return (
       <div>
         <div className="card-header">
-          Rights List
-          <button className="btn btn-success">Add Right</button>
+          <h4>Rights List</h4>
+          <button className="btn btn-success float-right">Add Right</button>
         </div>
         <div className="card-body">
           <ul className="list-group">
