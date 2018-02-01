@@ -19,12 +19,15 @@ import Signout from './components/auth/signout';
 import Signup from './components/auth/signup';
 import SignupDetails from './components/auth/signupDetails';
 import Feature from './components/feature';
+import UserPanel from './components/user/userPanel';
 import AdminPanel from './components/admin/adminPanel';
 import AdminRights from './components/admin/adminRights';
 import AdminSchools from './components/admin/adminSchools';
+import AddRight from './components/admin/addRight';
 import MajorViolations from './components/admin/majorViolations';
 import PendingViolations from './components/admin/pendingViolations';
 import PendingUsers from './components/admin/pendingUsers';
+import NewAdmin from './components/admin/newAdmin';
 import RequireAuth from './components/auth/require_auth';
 import Welcome from './components/welcome';
 import reducers from './reducers';
@@ -51,6 +54,7 @@ ReactDOM.render(
         <Route path="signupdetails" component={SignupDetails} />
         <Route path="adminpanel" component={AdminPanel} />
         <Route path="adminpanel/adminrights" component={AdminRights} />
+        <Route path="adminpanel/adminrights/addright" component={AddRight} />
         <Route path="adminpanel/adminschools" component={AdminSchools} />
         <Route path="adminpanel/majorviolations" component={MajorViolations} />
         <Route
@@ -58,6 +62,8 @@ ReactDOM.render(
           component={PendingViolations}
         />
         <Route path="adminPanel/pendingusers" component={PendingUsers} />
+        <Route path="adminPanel/newAdmin" component={NewAdmin} />
+        <Route path="userPanel" component={UserPanel} />
         <Route path="feature" component={RequireAuth(Feature)} />
       </Route>
     </Router>

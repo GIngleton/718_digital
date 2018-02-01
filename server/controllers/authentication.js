@@ -41,6 +41,7 @@ exports.signup = function(req, res, next) {
   const _id = req.body._id;
   const email = req.body.email;
   const password = req.body.password;
+  const is_Admin = req.body.is_Admin;
 
   console.log(req.body);
 
@@ -71,7 +72,7 @@ exports.signup = function(req, res, next) {
       is_Student: null,
       verification: null,
       school_Id: null,
-      is_Admin: false,
+      is_Admin: is_Admin,
       is_Approved: false
     });
 
@@ -106,10 +107,11 @@ exports.signup = function(req, res, next) {
   });
 };
 
-exports.signupDetails = function(req, res, next) {
-  User.update({ _id: req.user.id }, req.body, function(err, user) {
+exports.signupDetails = function(req, res) {
+  User.findOne({ email: req.query.email }, function(err, user) {
+    console.log(user);
     if (err) {
-      return next(err);
+      return err;
     }
 
     if (!user) {
@@ -117,62 +119,66 @@ exports.signupDetails = function(req, res, next) {
       return res.redirect('/signin');
     }
     // **Note** find out if email and password need to be passed back in
-    var email = req.body.email;
-    var password = req.body.password;
-    var firstName = req.body.firstName.trim();
-    var lastName = req.body.lastName.trim();
-    var is_Student = req.body.is_Student;
-    var school_Id = req.body.school_Id;
-    var verification = req.body.verification.trim();
+    // user.email = req.body.email;
+    // user.password = req.body.password;
+    user.firstName = req.body.firstName.trim();
+    user.lastName = req.body.lastName.trim();
+    user.is_Student = req.body.is_Student;
+    // user.school_Id = req.body.school_Id;
+    user.verification = req.body.verification.trim();
 
     // validate
-    if (!firstName || !lastName || !is_Student || !school_Id) {
-      req.flash('error', 'One or more required fields are empty');
-      return res.redirect('/signupDetails');
-    }
-
-    user.email = email;
-    user.password = password;
-    user.firstName = firstName;
-    user.lastName = lastName;
-    user.is_Student = is_Student;
-    user.school_Id = school_Id;
-    user.verification = verification;
+    // if (!firstName || !lastName || !is_Student || !school_Id) {
+    //   req.flash('error', 'One or more required fields are empty');
+    //   return res.redirect('/signupDetails');
+    // }
+    //
+    // user.email = email;
+    // user.password = password;
+    // user.firstName = firstName;
+    // user.lastName = lastName;
+    // user.is_Student = is_Student;
+    // user.school_Id = school_Id;
+    // user.verification = verification;
 
     // Save to DB
-    user.save(function(err) {
+    user.save(function(err, updatedUser) {
       if (err) {
-        return next(err);
+        rconsole.log(err);
+      } else {
+        res.send(updatedUser);
       }
 
-      return res.redirect('/');
+      // return res.redirect('/');
     });
   });
 };
 
 exports.addRight = function(req, res, next) {
   const title = req.body.title;
-  const media = req.body.media;
-  const text = req.body.text;
+  const category = req.body.category;
+  const details = req.body.details;
 
   console.log(req.body);
 
-  if (!title || !text) {
-    return res.status(422).send({ error: 'You must provide title and text.' });
+  if (!title || !category || !details) {
+    return res
+      .status(422)
+      .send({ error: 'You must provide title, category, and details.' });
   }
   // Create and save right to record
   const right = new Right({
     title: title,
-    media: media,
-    text: text
+    category: category,
+    details: details
   });
 
-  right.save(function(err) {
+  right.save(function(err, right) {
     if (err) {
       return next(err);
     }
   });
-  return res.redirect('/');
+  return res.send(right);
 };
 
 exports.addSchool = function(req, res, next) {

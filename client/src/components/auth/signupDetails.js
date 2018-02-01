@@ -49,6 +49,7 @@ class SignupDetails extends Component {
             <div>
               <label>
                 <input
+                  className="form-control"
                   name="is_Student"
                   component="input"
                   type="radio"
@@ -58,6 +59,7 @@ class SignupDetails extends Component {
               </label>
               <label>
                 <input
+                  className="form-control"
                   name="is_Student"
                   component="input"
                   type="radio"
@@ -79,7 +81,7 @@ class SignupDetails extends Component {
         </fieldset>
         {this.renderAlert()}
         <button action="submit" className="btn btn-primary">
-          Submit!
+          Submit
         </button>
       </form>
     );

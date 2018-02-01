@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const rightSchema = new Schema({
   // Pass propertie to model
   title: String,
+  details: String,
   media: String,
   text: String
 });

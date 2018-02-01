@@ -15,12 +15,14 @@ module.exports = function(app) {
   });
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
-  app.post('/signupdetails:id', requireSignin, Authentication.signupDetails);
+  app.put('/signupdetails', Authentication.signupDetails);
   app.post('/addright', Authentication.addRight);
   app.post('/addSchool', Authentication.addSchool);
   app.post('/addViolation', Authentication.addViolation);
   app.post('/addFlag', Authentication.addFlag);
   app.get('/user', UserController.greeting); // user profile page
-  app.get('/school:id');
-  app.get('/rights:id');
+  app.get('/school');
+  app.get('/rights');
+  app.put('/confirmEmail', UserController.confirmEmail);
+  app.post('/newadmin', Authentication.signup);
 };

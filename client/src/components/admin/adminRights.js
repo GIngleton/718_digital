@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import * as actions from '../../actions';
 import AdminRight from './adminRight';
 
 class AdminRights extends Component {
@@ -7,7 +10,13 @@ class AdminRights extends Component {
       <div>
         <div className="card-header">
           <h4>Rights List</h4>
-          <button className="btn btn-success float-right">Add Right</button>
+          <a
+            className="btn btn-success float-right"
+            href="/adminpanel/adminrights/addright"
+            role="button"
+          >
+            Add Right
+          </a>
         </div>
         <div className="card-body">
           <ul className="list-group">

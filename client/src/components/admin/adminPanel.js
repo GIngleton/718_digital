@@ -87,6 +87,22 @@ class AdminPanel extends Component {
             </a>
           </p>
         </div>
+        {/* Create Admin */}
+        <div className="jumbotron">
+          <h1>New Admin</h1>
+          <p className="lead">Create a new admin user.</p>
+          <hr className="my-4" />
+          <p>Creates new admin and sends invite email</p>
+          <p className="lead">
+            <a
+              className="btn btn-success btn-lg"
+              href="/adminpanel/newadmin"
+              role="button"
+            >
+              New Admin
+            </a>
+          </p>
+        </div>
       </div>
     );
   }

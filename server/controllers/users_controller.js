@@ -33,6 +33,22 @@ exports.greeting = function(req, res) {
   });
 };
 
+exports.confirmEmail = function(req, res) {
+  User.findOne({ email: req.query.email }, function(err, user) {
+    console.log(user);
+    if (err) return err;
+    user.is_Approved = false;
+    // user.set({ is_Approved: true });
+    user.save(function(err, updatedUser) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(updatedUser);
+      }
+    });
+  });
+};
+
 // module.exports = {
 //   greeting(req, res) {
 //     // var ObjectId = Schema.ObjectId;

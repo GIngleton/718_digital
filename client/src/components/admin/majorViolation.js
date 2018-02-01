@@ -9,22 +9,7 @@ class MajorViolation extends Component {
           <h5 className="card-title">Associated Right</h5>
           <p className="card-text">Major Violation Details</p>
 
-          <button
-            className="btn btn-success"
-            data-toggle="modal"
-            data-target="#exampleModal"
-            data-whatever="@mdo"
-          >
-            Send Email
-          </button>
-          <button
-            className="btn btn-danger"
-            data-toggle="modal"
-            data-target="#exampleModal"
-            data-whatever="@mdo"
-          >
-            Send Alert
-          </button>
+          <button className="btn btn-success">Send Email</button>
         </div>
         <div
           className="modal fade"
