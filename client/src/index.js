@@ -20,6 +20,7 @@ import Signup from './components/auth/signup';
 import SignupDetails from './components/auth/signupDetails';
 import Feature from './components/feature';
 import UserPanel from './components/user/userPanel';
+import UserProfile from './components/user/userProfile';
 import AdminPanel from './components/admin/adminPanel';
 import AdminRights from './components/admin/adminRights';
 import AdminSchools from './components/admin/adminSchools';
@@ -64,6 +65,7 @@ ReactDOM.render(
         <Route path="adminPanel/pendingusers" component={PendingUsers} />
         <Route path="adminPanel/newAdmin" component={NewAdmin} />
         <Route path="userPanel" component={UserPanel} />
+        <Route path="userProfile" component={UserProfile} />
         <Route path="feature" component={RequireAuth(Feature)} />
       </Route>
     </Router>

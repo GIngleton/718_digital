@@ -47,7 +47,7 @@ class UserPanel extends Component {
         </div>
         {/* User Profile */}
         <div className="jumbotron">
-          <h1>User Profile</h1>
+          <h1>My Profile</h1>
           <p className="lead">User Profile</p>
           <hr className="my-4" />
           <p>Take action and Approve or Deny new users</p>
