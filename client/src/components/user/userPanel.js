@@ -16,13 +16,13 @@ class UserPanel extends Component {
         {/*User School Panel*/}
         <div className="jumbotron">
           <h1>My School</h1>
-          <p className="lead">View Info On Your School</p>
+          <p className="lead">View info about your school.</p>
           <hr className="my-4" />
-          <p>Create, View, and +1 Violations at your school</p>
+          <p>Create, view, and +1 violations at your school.</p>
           <p className="lead">
             <a
               className="btn btn-primary btn-lg"
-              // href="/adminpanel/pendingviolations"
+              href="/userpanel/userschool"
               role="button"
             >
               My School
@@ -34,11 +34,11 @@ class UserPanel extends Component {
           <h1>Rights Library</h1>
           <p className="lead">KYER Rights Library</p>
           <hr className="my-4" />
-          <p>Get to know your rights</p>
+          <p>Get to know your rights.</p>
           <p className="lead">
             <a
               className="btn btn-danger btn-lg"
-              // href="/adminpanel/majorviolations"
+              href="/userpanel/userrights"
               role="button"
             >
               Rights Library
@@ -50,14 +50,14 @@ class UserPanel extends Component {
           <h1>My Profile</h1>
           <p className="lead">User Profile</p>
           <hr className="my-4" />
-          <p>Take action and Approve or Deny new users</p>
+          <p>View and edit your info.</p>
           <p className="lead">
             <a
               className="btn btn-success btn-lg"
-              href="/adminpanel/pendingusers"
+              href="/userpanel/userprofile"
               role="button"
             >
-              Pending Users
+              My Profile
             </a>
           </p>
         </div>

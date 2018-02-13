@@ -16,7 +16,7 @@ class AdminPanel extends Component {
           <p className="lead">
             <a
               className="btn btn-primary btn-lg"
-              href="/adminpanel/pendingviolations"
+              href="/pendingviolationsindex"
               role="button"
             >
               Pending Violations
@@ -48,7 +48,7 @@ class AdminPanel extends Component {
           <p className="lead">
             <a
               className="btn btn-success btn-lg"
-              href="/adminpanel/pendingusers"
+              href="/pendingusersindex"
               role="button"
             >
               Pending Users
@@ -64,7 +64,7 @@ class AdminPanel extends Component {
           <p className="lead">
             <a
               className="btn btn-warning btn-lg"
-              href="/adminpanel/adminrights"
+              href="/rightsindex"
               role="button"
             >
               Bill of Rights
@@ -80,7 +80,7 @@ class AdminPanel extends Component {
           <p className="lead">
             <a
               className="btn btn-info btn-lg"
-              href="/adminpanel/adminschools"
+              href="/schoolindex"
               role="button"
             >
               Schools

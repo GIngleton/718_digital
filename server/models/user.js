@@ -14,7 +14,7 @@ const userSchema = new Schema({
   verification: String,
   school_Id: { type: Schema.Types.ObjectId, ref: 'school' },
   is_Admin: { type: Boolean, default: false },
-  is_Approved: Boolean
+  is_Approved: String
 });
 
 // On Save hook, encrypt password

@@ -37,7 +37,7 @@ exports.confirmEmail = function(req, res) {
   User.findOne({ email: req.query.email }, function(err, user) {
     console.log(user);
     if (err) return err;
-    user.is_Approved = false;
+    user.is_Approved = 'notYet';
     // user.set({ is_Approved: true });
     user.save(function(err, updatedUser) {
       if (err) {

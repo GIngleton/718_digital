@@ -73,7 +73,7 @@ exports.signup = function(req, res, next) {
       verification: null,
       school_Id: null,
       is_Admin: is_Admin,
-      is_Approved: false
+      is_Approved: 'no'
     });
 
     // var mailSignup = {
@@ -149,6 +149,7 @@ exports.signupDetails = function(req, res) {
         res.send(updatedUser);
       }
 
+      // get rid of the if statements and use .then
       // return res.redirect('/');
     });
   });
@@ -183,43 +184,57 @@ exports.addRight = function(req, res, next) {
 
 exports.addSchool = function(req, res, next) {
   const name = req.body.name;
-  const address = req.body.address;
+  const street = req.body.street;
+  const city = req.body.city;
+  const state = req.body.state;
+  const zip = req.body.zip;
   const gradeLevel = req.body.gradeLevel;
-  const users = req.body.users;
-  const violations = req.body.violations;
+  //const users = req.body.users;
+  //const violations = req.body.violations;
 
-  console.log(req.body);
+  //console.log(req.body);
 
-  if (!name || !address || !gradeLevel) {
+  if (!name || !street || !city || !state || !zip || !gradeLevel) {
     return res
       .status(422)
-      .send({ error: 'You must provide name, address, and grade level.' });
+      .send({ error: 'You must provide name, full address, and grade level.' });
   }
 
   // Create and save school to record
   const school = new School({
-    _id: new mongoose.Types.ObjectId(),
+    //_id: new mongoose.Types.ObjectId(),
     name: name,
-    address: address,
-    gradeLevel: gradeLevel,
-    users: users,
-    violations: violations
+    street: street,
+    city: city,
+    state: state,
+    zip: zip,
+    gradeLevel: gradeLevel
+    //users: users,
+    //violations: violations
   });
 
-  school.save(function(err) {
+  // school
+  // .save()
+  // .then(item => {
+  //   res.send('item saved to database');
+  // })
+  // .catch(err => {
+  //   res.status(400).send('unable to save to database');
+  // });
+
+  school.save(function(err, school) {
     if (err) {
       return next(err);
     }
   });
-  return res.redirect('/');
+  return res.send(school);
 };
 
-exports.addViolation = function(req, res, next) {
+exports.newViolation = function(req, res, next) {
   const flagger = req.body.flagger;
   const school = req.body.school;
   const info = req.body.info;
   const associated_right = req.body.associated_right;
-
   console.log(req.body);
 
   if (!info) {
@@ -230,7 +245,8 @@ exports.addViolation = function(req, res, next) {
     flagger: flagger,
     school: school,
     info: info,
-    associated_right: associated_right
+    associated_right: associated_right,
+    status: 'pending'
   });
 
   violation.save(function(err) {
@@ -238,7 +254,7 @@ exports.addViolation = function(req, res, next) {
       return next(err);
     }
   });
-  return res.redirect('/');
+  return res.send(violation);
 };
 
 exports.addFlag = function(req, res, next) {
@@ -259,7 +275,6 @@ exports.addFlag = function(req, res, next) {
   });
   return res.redirect('/');
 };
-
 // exports.greeting = function(req, res, next) {
 //   // var ObjectId = Schema.ObjectId;
 //   console.log(req.query);

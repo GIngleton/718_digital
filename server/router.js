@@ -1,5 +1,7 @@
 const Authentication = require('./controllers/authentication');
 const UserController = require('./controllers/users_controller');
+const AdminController = require('./controllers/adminPanel_controller');
+const RightsController = require('./controllers/rights_controller');
 const passportService = require('./services/passport');
 const passport = require('passport');
 
@@ -18,11 +20,16 @@ module.exports = function(app) {
   app.put('/signupdetails', Authentication.signupDetails);
   app.post('/addright', Authentication.addRight);
   app.post('/addSchool', Authentication.addSchool);
-  app.post('/addViolation', Authentication.addViolation);
+  app.post('/newViolation', Authentication.newViolation);
   app.post('/addFlag', Authentication.addFlag);
   app.get('/user', UserController.greeting); // user profile page
-  app.get('/school');
-  app.get('/rights');
+  //app.get('/school'); // single school
+  app.get('/schools', AdminController.fetchSchools);
+  app.get('/pendingViolations', AdminController.pendingViolations);
+  app.get('/rights', RightsController.fetchRights);
   app.put('/confirmEmail', UserController.confirmEmail);
   app.post('/newadmin', Authentication.signup);
+  app.get('/pendingUsers', AdminController.pendingUsers);
 };
+
+//app.patch to update one or two properties of something

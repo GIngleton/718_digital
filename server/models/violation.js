@@ -7,7 +7,8 @@ const violationSchema = new Schema({
   flagger: { type: Schema.Types.ObjectId, ref: 'user' }, // link to specific user who created violation
   school: { type: Schema.Types.ObjectId, ref: 'school' }, // link to specific school
   info: String,
-  associated_right: { type: Schema.Types.ObjectId, ref: 'right' } // link to specific right
+  associated_right: { type: Schema.Types.ObjectId, ref: 'right' }, // link to specific right
+  status: String // pending or confirmed
 });
 
 // Create model class

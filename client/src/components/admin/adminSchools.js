@@ -6,8 +6,14 @@ class AdminSchools extends Component {
     return (
       <div>
         <div className="card-header">
-          List of all schools
-          <button className="btn btn-success">Add School</button>
+          <h4>List of all schools</h4>
+          <a
+            className="btn btn-success float-right"
+            href="/adminpanel/adminschools/addschool"
+            role="button"
+          >
+            Add School
+          </a>
         </div>
         <div className="card-body">
           <ul className="list-group">
