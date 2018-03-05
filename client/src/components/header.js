@@ -3,35 +3,42 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 class Header extends Component {
-
   renderLinks() {
     if (this.props.authenticated) {
       // Show a link to sign out
-      return <li className="nav-item">
-        <Link className="nav-link" to="/signout">Sign out</Link>
-      </li>
+      return (
+        <li className="nav-item">
+          <Link className="nav-link" to="/signout">
+            Sign out
+          </Link>
+        </li>
+      );
     } else {
       // Show a link to sign in or sign up
       return [
         <li className="nav-item" key={1}>
-          <Link className="nav-link" to="/signin">Sign in</Link>
+          <Link className="nav-link" to="/signin">
+            Sign in
+          </Link>
         </li>,
         <li className="nav-item" key={2}>
-          <Link className="nav-link" to="/signup">Sign up</Link>
+          <Link className="nav-link" to="/signup">
+            Sign up
+          </Link>
         </li>
       ];
     }
   }
 
-  render(){
+  render() {
     return (
       <nav className="navbar navbar-light">
-        <Link to='/' className="navbar-brand">Redux Auth</Link>
-        <ul className="nav navbar-nav">
-          {this.renderLinks()}
-        </ul>
+        <Link to="/" className="navbar-brand">
+          718 Digital
+        </Link>
+        <ul className="nav navbar-nav">{this.renderLinks()}</ul>
       </nav>
-    )
+    );
   }
 }
 
