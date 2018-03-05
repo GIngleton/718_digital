@@ -1,7 +1,3 @@
 import React from 'react';
 
-export default () => <div>
-  <h3>Know Your Educational Rights</h3>
-  <h4>Register</h4>
-  <h4>Map</h4>
-</div>
+export default () => <div>Welcome to our slice of paradise</div>;
